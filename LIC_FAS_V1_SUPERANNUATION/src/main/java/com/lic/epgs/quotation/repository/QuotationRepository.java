@@ -1,20 +1,14 @@
-package com.lic.epgs.quotation.repository; 
+package com.lic.epgs.quotation.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository; 
-import org.springframework.stereotype.Repository; 
-import com.lic.epgs.quotation.controller.QuotationController; 
+import java.util.List;
 
-@Repository 
-public interface QuotationRepository extends JpaRepository<QuotationController, Long> { 
-    
-    void uploadDocument(); 
-    
-    void saveDocument(); 
-    
-    void logStartEndUploadDocument(); 
-    
-    void handleExceptionsGracefully(); 
-    
-    void returnAppropriateErrorMessage(); 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.lic.epgs.quotation.entity.CommonDocsTempEntity;
+
+@Repository
+public interface QuotationRepository extends JpaRepository<CommonDocsTempEntity, Long> {
+    
+    List<CommonDocsTempEntity> getDocumentDetails(Long quotationId);
 }
