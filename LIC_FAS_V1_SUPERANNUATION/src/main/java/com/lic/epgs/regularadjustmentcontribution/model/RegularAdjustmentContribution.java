@@ -1,20 +1,33 @@
+package com.lic.epgs.regularadjustmentcontribution.model; 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "regular_adjustment_contribution")
 public class RegularAdjustmentContribution {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String masterPolicyId;
     private String temporaryPolicyId;
     private String createdBy;
     private String regularContributionId;
     private String unitCode;
     private String fileName;
-    private Long LICId;
-    private String claimStatus;
-    private String status;
-    private List<RegularAdjustmentContribution> successDataSet;
-    private List<RegularAdjustmentContribution> failedDataSet;
-
-    public RegularAdjustmentContribution() {
-    }
+    private int totalCount;
+    private boolean isActive;
+    private String createdOn;
+    private int successCount;
+    private int failedCount;
+    private String errorMessages;
+    private String transactionMessage;
+    private String transactionStatus;
 
     public Long getId() {
         return id;
@@ -72,44 +85,67 @@ public class RegularAdjustmentContribution {
         this.fileName = fileName;
     }
 
-    public Long getLICId() {
-        return LICId;
+    public int getTotalCount() {
+        return totalCount;
     }
 
-    public void setLICId(Long LICId) {
-        this.LICId = LICId;
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
     }
 
-    public String getClaimStatus() {
-        return claimStatus;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setClaimStatus(String claimStatus) {
-        this.claimStatus = claimStatus;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
-    public String getStatus() {
-        return status;
+    public String getCreatedOn() {
+        return createdOn;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
     }
 
-    public List<RegularAdjustmentContribution> getSuccessDataSet() {
-        return successDataSet;
+    public int getSuccessCount() {
+        return successCount;
     }
 
-    public void setSuccessDataSet(List<RegularAdjustmentContribution> successDataSet) {
-        this.successDataSet = successDataSet;
+    public void setSuccessCount(int successCount) {
+        this.successCount = successCount;
     }
 
-    public List<RegularAdjustmentContribution> getFailedDataSet() {
-        return failedDataSet;
+    public int getFailedCount() {
+        return failedCount;
     }
 
-    public void setFailedDataSet(List<RegularAdjustmentContribution> failedDataSet) {
-        this.failedDataSet = failedDataSet;
+    public void setFailedCount(int failedCount) {
+        this.failedCount = failedCount;
     }
 
+    public String getErrorMessages() {
+        return errorMessages;
+    }
+
+    public void setErrorMessages(String errorMessages) {
+        this.errorMessages = errorMessages;
+    }
+
+    public String getTransactionMessage() {
+        return transactionMessage;
+    }
+
+    public void setTransactionMessage(String transactionMessage) {
+        this.transactionMessage = transactionMessage;
+    }
+
+    public String getTransactionStatus() {
+        return transactionStatus;
+    }
+
+    public void setTransactionStatus(String transactionStatus) {
+        this.transactionStatus = transactionStatus;
+    }
 }
