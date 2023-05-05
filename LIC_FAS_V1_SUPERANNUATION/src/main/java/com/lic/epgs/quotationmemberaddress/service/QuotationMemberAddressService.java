@@ -1,28 +1,29 @@
 package com.lic.epgs.quotationmemberaddress.service;
 
-import com.lic.epgs.quotationmemberaddress.dto.QuotationMemberAddressDto;
-import com.lic.epgs.quotationmemberaddress.dto.QuotationMemberAddressApiResponseDto;
-import com.lic.epgs.quotationmemberaddress.entity.QuotationMemberAddressTempEntity;
-import com.lic.epgs.quotationmemberaddress.repository.QuotationMemberAddressRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.lic.epgs.quotationmemberaddress.model.QuotationMemberAddress;
+import com.lic.epgs.quotationmemberaddress.repository.QuotationMemberAddressRepository;
 
 @Service
 public class QuotationMemberAddressService {
 
-    @Autowired
-    private QuotationMemberAddressRepository quotationMemberAddressRepository;
+	@Autowired
+	private QuotationMemberAddressRepository quotationMemberAddressRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+	@Transactional
+	public void deleteQuotationMemberAddress(Long addressId) {
+		quotationMemberAddressRepository.deleteQuotationMemberAddress(addressId);
+	}
 
-    public QuotationMemberAddressApiResponseDto saveQuotationMemberAddress(QuotationMemberAddressDto quotationMemberAddressDto) {
-        return quotationMemberAddressRepository.saveQuotationMemberAddress(quotationMemberAddressDto);
-    }
+	public QuotationMemberAddress saveQuotationMemberAddress(QuotationMemberAddress quotationMemberAddress) {
+		return quotationMemberAddressRepository.save(quotationMemberAddress);
+	}
 
-    public QuotationMemberAddressApiResponseDto getQuotationMemberAddress(Long quotationMemberAddressId, Long quotationMemberId) {
-        return quotationMemberAddressRepository.getQuotationMemberAddress(quotationMemberAddressId, quotationMemberId);
-    }
+	public QuotationMemberAddress getQuotationMemberAddress(Long addressId) {
+		return quotationMemberAddressRepository.findById(addressId).orElse(null);
+	}
 
 }
