@@ -4,53 +4,55 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Quotation {
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotNull
-    private String proposalNumber;
-
-    @NotNull
-    private String quotationNumber;
-
-    @NotNull
-    private boolean active;
-
-    public Long getId() {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String customerName;
+    private String productName;
+    private double price;
+    
+    public Quotation() {
+    }
+    
+    public Quotation(String customerName, String productName, double price) {
+        this.customerName = customerName;
+        this.productName = productName;
+        this.price = price;
+    }
+    
+    public int getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    
+    public void setId(int id) {
         this.id = id;
     }
-
-    public String getProposalNumber() {
-        return proposalNumber;
+    
+    public String getCustomerName() {
+        return customerName;
     }
-
-    public void setProposalNumber(String proposalNumber) {
-        this.proposalNumber = proposalNumber;
+    
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
-
-    public String getQuotationNumber() {
-        return quotationNumber;
+    
+    public String getProductName() {
+        return productName;
     }
-
-    public void setQuotationNumber(String quotationNumber) {
-        this.quotationNumber = quotationNumber;
+    
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
-
-    public boolean isActive() {
-        return active;
+    
+    public double getPrice() {
+        return price;
     }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
