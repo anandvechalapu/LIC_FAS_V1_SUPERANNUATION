@@ -10,23 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lic.epgs.quotation.entity.Quotation;
+import com.lic.epgs.quotation.entity.QuotationTempEntity;
 import com.lic.epgs.quotation.service.QuotationTempService;
 
 @RestController
-@RequestMapping("/quotation")
+@RequestMapping("/quotations")
 public class QuotationTempController {
-    
+
     @Autowired
     private QuotationTempService quotationTempService;
-    
-    @GetMapping("/{id}")
-    public Optional<Quotation> getQuotationById(@PathVariable("id") int id) {
-        return quotationTempService.getQuotationById(id);
-    }
-    
+
     @PostMapping("/save")
-    public Quotation saveQuotation(@RequestBody Quotation quotation) {
-        return quotationTempService.saveQuotation(quotation);
+    public QuotationTempEntity saveQuotationTemp(@RequestBody QuotationTempEntity quotationTemp) {
+        return quotationTempService.saveQuotationTemp(quotationTemp);
     }
+
+    @GetMapping("/find/{quotationId}")
+    public Optional<QuotationTempEntity> findByQuotationId(@PathVariable Integer quotationId) {
+        return quotationTempService.findByQuotationId(quotationId);
+    }
+
 }
