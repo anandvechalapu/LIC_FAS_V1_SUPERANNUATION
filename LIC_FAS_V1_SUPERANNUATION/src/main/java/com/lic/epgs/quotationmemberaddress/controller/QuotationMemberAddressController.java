@@ -1,28 +1,22 @@
 package com.lic.epgs.quotationmemberaddress.controller;
 
-import com.lic.epgs.quotationmemberaddress.dto.QuotationMemberAddressDto;
-import com.lic.epgs.quotationmemberaddress.dto.QuotationMemberAddressApiResponseDto;
-import com.lic.epgs.quotationmemberaddress.service.QuotationMemberAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lic.epgs.quotationmemberaddress.dto.QuotationMemberAddressApiResponseDto;
+import com.lic.epgs.quotationmemberaddress.service.GetQuotationMemberAddressesService;
 
 @RestController
-@RequestMapping("/quotationMemberAddress")
 public class QuotationMemberAddressController {
-
+    
     @Autowired
-    private QuotationMemberAddressService quotationMemberAddressService;
-
-    @PostMapping("")
-    public ResponseEntity<QuotationMemberAddressApiResponseDto> saveQuotationMemberAddress(@RequestBody QuotationMemberAddressDto quotationMemberAddressDto) {
-        return new ResponseEntity<>(quotationMemberAddressService.saveQuotationMemberAddress(quotationMemberAddressDto), HttpStatus.CREATED);
+    private GetQuotationMemberAddressesService getQuotationMemberAddressesService;
+    
+    @GetMapping("/quotation-member-addresses/{quotationMemberId}")
+    public QuotationMemberAddressApiResponseDto getAll(@PathVariable Long quotationMemberId) {
+        return getQuotationMemberAddressesService.getAll(quotationMemberId);
     }
 
-    @GetMapping("/{quotationMemberAddressId}/{quotationMemberId}")
-    public ResponseEntity<QuotationMemberAddressApiResponseDto> getQuotationMemberAddress(@PathVariable("quotationMemberAddressId") Long quotationMemberAddressId,
-                                                                                        @PathVariable("quotationMemberId") Long quotationMemberId) {
-        return new ResponseEntity<>(quotationMemberAddressService.getQuotationMemberAddress(quotationMemberAddressId, quotationMemberId), HttpStatus.OK);
-    }
 }
