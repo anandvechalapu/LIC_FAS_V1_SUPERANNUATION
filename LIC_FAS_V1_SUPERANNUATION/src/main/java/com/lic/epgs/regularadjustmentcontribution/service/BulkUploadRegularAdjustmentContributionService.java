@@ -1,45 +1,54 @@
 package com.lic.epgs.regularadjustmentcontribution.service;
 
 import java.util.List;
-
-import com.lic.epgs.regularadjustmentcontribution.model.RegularAdjustmentContribution;
-import com.lic.epgs.regularadjustmentcontribution.repository.BulkUploadRegularAdjustmentContributionRepository;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lic.epgs.regularadjustmentcontribution.model.BulkUploadRegularAdjustmentContribution;
+import com.lic.epgs.regularadjustmentcontribution.repository.BulkUploadRegularAdjustmentContributionRepository;
+
 @Service
 public class BulkUploadRegularAdjustmentContributionService {
 
-    @Autowired
-    private BulkUploadRegularAdjustmentContributionRepository bulkUploadRegularAdjustmentContributionRepository;
-
-    public List<RegularAdjustmentContribution> findByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        return bulkUploadRegularAdjustmentContributionRepository.findByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
-    }
-
-    public List<RegularAdjustmentContribution> findByMasterPolicyIdAndUnitCodeAndLICIdsIn(String masterPolicyId, String unitCode, List<Long> LICIds) {
-        return bulkUploadRegularAdjustmentContributionRepository.findByMasterPolicyIdAndUnitCodeAndLICIdsIn(masterPolicyId, unitCode, LICIds);
-    }
-
-    public List<RegularAdjustmentContribution> findByMasterPolicyIdAndUnitCodeAndClaimStatusIn(String masterPolicyId, String unitCode, List<String> claimStatus) {
-        return bulkUploadRegularAdjustmentContributionRepository.findByMasterPolicyIdAndUnitCodeAndClaimStatusIn(masterPolicyId, unitCode, claimStatus);
-    }
-
-    public List<RegularAdjustmentContribution> findByRegularContributionId(String regularContributionId) {
-        return bulkUploadRegularAdjustmentContributionRepository.findByRegularContributionId(regularContributionId);
-    }
-
-    public List<RegularAdjustmentContribution> findBySuccessDataSetAndStatus(List<RegularAdjustmentContribution> successDataSet, String status) {
-        return bulkUploadRegularAdjustmentContributionRepository.findBySuccessDataSetAndStatus(successDataSet, status);
-    }
-
-    public List<RegularAdjustmentContribution> findByFailedDataSetAndStatus(List<RegularAdjustmentContribution> failedDataSet, String status) {
-        return bulkUploadRegularAdjustmentContributionRepository.findByFailedDataSetAndStatus(failedDataSet, status);
-    }
-
-    public RegularAdjustmentContribution save(RegularAdjustmentContribution regularAdjustmentContribution) {
-        return bulkUploadRegularAdjustmentContributionRepository.save(regularAdjustmentContribution);
-    }
-
+	@Autowired
+	BulkUploadRegularAdjustmentContributionRepository bulkUploadRegularAdjustmentContributionRepository;
+	
+	public BulkUploadRegularAdjustmentContribution save(BulkUploadRegularAdjustmentContribution bulkUploadRegularAdjustmentContribution) {
+		return bulkUploadRegularAdjustmentContributionRepository.save(bulkUploadRegularAdjustmentContribution);
+	}
+	
+	public List<BulkUploadRegularAdjustmentContribution> findAll() {
+		return bulkUploadRegularAdjustmentContributionRepository.findAll();
+	}
+	
+	public Optional<BulkUploadRegularAdjustmentContribution> findById(Long id) {
+		return bulkUploadRegularAdjustmentContributionRepository.findById(id);
+	}
+	
+	public void delete(Long id) {
+		bulkUploadRegularAdjustmentContributionRepository.deleteById(id);
+	}
+	
+	public BulkUploadRegularAdjustmentContribution findByMasterPolicyIdAndTemporaryPolicyIdAndRegularContributionIdAndUnitCode(String masterPolicyId, String temporaryPolicyId, String regularContributionId, String unitCode) {
+		return bulkUploadRegularAdjustmentContributionRepository.findByMasterPolicyIdAndTemporaryPolicyIdAndRegularContributionIdAndUnitCode(masterPolicyId, temporaryPolicyId, regularContributionId, unitCode);
+	}
+	
+	public BulkUploadRegularAdjustmentContribution findByRegularContributionId(String regularContributionId) {
+		return bulkUploadRegularAdjustmentContributionRepository.findByRegularContributionId(regularContributionId);
+	}
+	
+	public BulkUploadRegularAdjustmentContribution findByCreatedBy(String createdBy) {
+		return bulkUploadRegularAdjustmentContributionRepository.findByCreatedBy(createdBy);
+	}
+	
+	public BulkUploadRegularAdjustmentContribution findByFileName(String fileName) {
+		return bulkUploadRegularAdjustmentContributionRepository.findByFileName(fileName);
+	}
+	
+	public BulkUploadRegularAdjustmentContribution findByIsActive(Boolean isActive) {
+		return bulkUploadRegularAdjustmentContributionRepository.findByIsActive(isActive);
+	}
+	
 }
