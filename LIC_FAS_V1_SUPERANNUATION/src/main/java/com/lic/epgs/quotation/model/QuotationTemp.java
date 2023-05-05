@@ -13,48 +13,63 @@ public class QuotationTemp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="quotation_id")
-    private int quotationId;
-
-    @Column(name="quotation_date")
-    private String quotationDate;
-
     @Column(name="quotation_no")
-    private String quotationNo;
-
-    @Column(name="quotation_amount")
-    private double quotationAmount;
-
-    public int getQuotationId() {
-        return quotationId;
+    private Long quotationNo;
+    
+    @Column(name="unit_office")
+    private String unitOffice;
+    
+    @Column(name="quotation_status")
+    private String quotationStatus;
+    
+    @Column(name="modified_by")
+    private String modifiedBy;
+    
+    @Column(name="modified_on")
+    private String modifiedOn;
+    
+    public QuotationTemp() {
+        // default constructor
     }
 
-    public void setQuotationId(int quotationId) {
-        this.quotationId = quotationId;
-    }
-
-    public String getQuotationDate() {
-        return quotationDate;
-    }
-
-    public void setQuotationDate(String quotationDate) {
-        this.quotationDate = quotationDate;
-    }
-
-    public String getQuotationNo() {
+    public Long getQuotationNo() {
         return quotationNo;
     }
 
-    public void setQuotationNo(String quotationNo) {
+    public void setQuotationNo(Long quotationNo) {
         this.quotationNo = quotationNo;
     }
 
-    public double getQuotationAmount() {
-        return quotationAmount;
+    public String getUnitOffice() {
+        return unitOffice;
     }
 
-    public void setQuotationAmount(double quotationAmount) {
-        this.quotationAmount = quotationAmount;
+    public void setUnitOffice(String unitOffice) {
+        this.unitOffice = unitOffice;
+    }
+
+    public String getQuotationStatus() {
+        return quotationStatus;
+    }
+
+    public void setQuotationStatus(String quotationStatus) {
+        this.quotationStatus = quotationStatus;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public String getModifiedOn() {
+        return modifiedOn;
+    }
+
+    public void setModifiedOn(String modifiedOn) {
+        this.modifiedOn = modifiedOn;
     }
 
 }
