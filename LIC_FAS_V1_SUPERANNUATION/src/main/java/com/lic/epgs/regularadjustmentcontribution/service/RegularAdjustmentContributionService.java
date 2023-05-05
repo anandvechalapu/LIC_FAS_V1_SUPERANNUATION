@@ -14,40 +14,64 @@ public class RegularAdjustmentContributionService {
     @Autowired
     private RegularAdjustmentContributionRepository regularAdjustmentContributionRepository;
 
-    public RegularAdjustmentContribution findByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        return regularAdjustmentContributionRepository.findByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public List<RegularAdjustmentContribution> getAllRegularAdjustmentContributions() {
+        return regularAdjustmentContributionRepository.findAll();
     }
 
-    public void deleteByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        regularAdjustmentContributionRepository.deleteByMasterPolicyIdAndTemporaryPolicyIdAndCreatedByAndRegularContributionIdAndUnitCodeAndFileName(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByMasterPolicyId(String masterPolicyId) {
+        return regularAdjustmentContributionRepository.findByMasterPolicyId(masterPolicyId);
     }
 
-    public void save(RegularAdjustmentContribution regularAdjustmentContribution) {
-        regularAdjustmentContributionRepository.save(regularAdjustmentContribution);
+    public RegularAdjustmentContribution findByTemporaryPolicyId(String temporaryPolicyId) {
+        return regularAdjustmentContributionRepository.findByTemporaryPolicyId(temporaryPolicyId);
     }
 
-    public void createRegularAdjustmentContributionBatch(List<RegularAdjustmentContribution> regularAdjustmentContributions) {
-        regularAdjustmentContributionRepository.saveAll(regularAdjustmentContributions);
+    public RegularAdjustmentContribution findByCreatedBy(String createdBy) {
+        return regularAdjustmentContributionRepository.findByCreatedBy(createdBy);
     }
 
-    public void populateSuccessDataSet(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        regularAdjustmentContributionRepository.populateSuccessDataSet(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByRegularContributionId(String regularContributionId) {
+        return regularAdjustmentContributionRepository.findByRegularContributionId(regularContributionId);
     }
 
-    public void populateFailedDataSet(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        regularAdjustmentContributionRepository.populateFailedDataSet(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByUnitCode(String unitCode) {
+        return regularAdjustmentContributionRepository.findByUnitCode(unitCode);
     }
 
-    public String generateErrorMessages(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        return regularAdjustmentContributionRepository.generateErrorMessages(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByFileName(String fileName) {
+        return regularAdjustmentContributionRepository.findByFileName(fileName);
     }
 
-    public String generateTransactionMessage(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        return regularAdjustmentContributionRepository.generateTransactionMessage(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByTotalCount(int totalCount) {
+        return regularAdjustmentContributionRepository.findByTotalCount(totalCount);
     }
 
-    public String generateTransactionStatus(String masterPolicyId, String temporaryPolicyId, String createdBy, String regularContributionId, String unitCode, String fileName) {
-        return regularAdjustmentContributionRepository.generateTransactionStatus(masterPolicyId, temporaryPolicyId, createdBy, regularContributionId, unitCode, fileName);
+    public RegularAdjustmentContribution findByIsActive(boolean isActive) {
+        return regularAdjustmentContributionRepository.findByIsActive(isActive);
+    }
+
+    public RegularAdjustmentContribution findByCreatedOn(String createdOn) {
+        return regularAdjustmentContributionRepository.findByCreatedOn(createdOn);
+    }
+
+    public RegularAdjustmentContribution findBySuccessCount(int successCount) {
+        return regularAdjustmentContributionRepository.findBySuccessCount(successCount);
+    }
+
+    public RegularAdjustmentContribution findByFailedCount(int failedCount) {
+        return regularAdjustmentContributionRepository.findByFailedCount(failedCount);
+    }
+
+    public RegularAdjustmentContribution findByErrorMessages(String errorMessages) {
+        return regularAdjustmentContributionRepository.findByErrorMessages(errorMessages);
+    }
+
+    public RegularAdjustmentContribution findByTransactionMessage(String transactionMessage) {
+        return regularAdjustmentContributionRepository.findByTransactionMessage(transactionMessage);
+    }
+
+    public RegularAdjustmentContribution findByTransactionStatus(String transactionStatus) {
+        return regularAdjustmentContributionRepository.findByTransactionStatus(transactionStatus);
     }
 
 }
