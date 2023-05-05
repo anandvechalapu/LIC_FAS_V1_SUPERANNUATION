@@ -1,153 +1,137 @@
 package com.lic.epgs.regularadjustmentcontribution.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="bulk_upload_regular_adjustment_contributions")
 public class BulkUploadRegularAdjustmentContribution {
-
-    @Id
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
-    
+	
+	@Column(name="master_policy_id")
     private String masterPolicyId;
-    
+	
+	@Column(name="temporary_policy_id")
     private String temporaryPolicyId;
-    
-    private String createdBy;
-    
+	
+	@Column(name="regular_contribution_id")
     private String regularContributionId;
-    
+	
+	@Column(name="unit_code")
     private String unitCode;
-    
+	
+	@Column(name="policy_name")
+    private String policyName;
+	
+	@Column(name="adjustment_code")
+    private String adjustmentCode;
+	
+	@Column(name="adjustment_amount")
+    private Double adjustmentAmount;
+	
+	@Column(name="created_by")
+    private String createdBy;
+	
+	@Column(name="file_name")
     private String fileName;
-    
-    private Integer totalCount;
-    
+	
+	@Column(name="is_active")
     private Boolean isActive;
-    
-    private Long createdOn;
-    
-    private Integer successCount;
-    
-    private Integer failedCount;
-    
-    private String transactionMessage;
-    
-    private String transactionStatus;
-    
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getMasterPolicyId() {
-        return masterPolicyId;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setMasterPolicyId(String masterPolicyId) {
-        this.masterPolicyId = masterPolicyId;
-    }
+	public String getMasterPolicyId() {
+		return masterPolicyId;
+	}
 
-    public String getTemporaryPolicyId() {
-        return temporaryPolicyId;
-    }
+	public void setMasterPolicyId(String masterPolicyId) {
+		this.masterPolicyId = masterPolicyId;
+	}
 
-    public void setTemporaryPolicyId(String temporaryPolicyId) {
-        this.temporaryPolicyId = temporaryPolicyId;
-    }
+	public String getTemporaryPolicyId() {
+		return temporaryPolicyId;
+	}
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
+	public void setTemporaryPolicyId(String temporaryPolicyId) {
+		this.temporaryPolicyId = temporaryPolicyId;
+	}
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
+	public String getRegularContributionId() {
+		return regularContributionId;
+	}
 
-    public String getRegularContributionId() {
-        return regularContributionId;
-    }
+	public void setRegularContributionId(String regularContributionId) {
+		this.regularContributionId = regularContributionId;
+	}
 
-    public void setRegularContributionId(String regularContributionId) {
-        this.regularContributionId = regularContributionId;
-    }
+	public String getUnitCode() {
+		return unitCode;
+	}
 
-    public String getUnitCode() {
-        return unitCode;
-    }
+	public void setUnitCode(String unitCode) {
+		this.unitCode = unitCode;
+	}
 
-    public void setUnitCode(String unitCode) {
-        this.unitCode = unitCode;
-    }
+	public String getPolicyName() {
+		return policyName;
+	}
 
-    public String getFileName() {
-        return fileName;
-    }
+	public void setPolicyName(String policyName) {
+		this.policyName = policyName;
+	}
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+	public String getAdjustmentCode() {
+		return adjustmentCode;
+	}
 
-    public Integer getTotalCount() {
-        return totalCount;
-    }
+	public void setAdjustmentCode(String adjustmentCode) {
+		this.adjustmentCode = adjustmentCode;
+	}
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
+	public Double getAdjustmentAmount() {
+		return adjustmentAmount;
+	}
 
-    public Boolean getIsActive() {
-        return isActive;
-    }
+	public void setAdjustmentAmount(Double adjustmentAmount) {
+		this.adjustmentAmount = adjustmentAmount;
+	}
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-    public Long getCreatedOn() {
-        return createdOn;
-    }
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public void setCreatedOn(Long createdOn) {
-        this.createdOn = createdOn;
-    }
+	public String getFileName() {
+		return fileName;
+	}
 
-    public Integer getSuccessCount() {
-        return successCount;
-    }
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 
-    public void setSuccessCount(Integer successCount) {
-        this.successCount = successCount;
-    }
+	public Boolean getIsActive() {
+		return isActive;
+	}
 
-    public Integer getFailedCount() {
-        return failedCount;
-    }
-
-    public void setFailedCount(Integer failedCount) {
-        this.failedCount = failedCount;
-    }
-
-    public String getTransactionMessage() {
-        return transactionMessage;
-    }
-
-    public void setTransactionMessage(String transactionMessage) {
-        this.transactionMessage = transactionMessage;
-    }
-
-    public String getTransactionStatus() {
-        return transactionStatus;
-    }
-
-    public void setTransactionStatus(String transactionStatus) {
-        this.transactionStatus = transactionStatus;
-    }
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
 
 }
