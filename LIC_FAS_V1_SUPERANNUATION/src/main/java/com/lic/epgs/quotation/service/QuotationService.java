@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lic.epgs.quotation.model.Quotation;
-import com.lic.epgs.quotation.repository.QuotationTempRepository;
+import com.lic.epgs.quotation.repository.QuotationRepository;
 
 @Service
 public class QuotationService {
 	
 	@Autowired
-	private QuotationTempRepository quotationTempRepository;
-
-	public Optional<Quotation> getQuotationByStatus(String status) {
-		return quotationTempRepository.findByStatus(status);
-	}	
+	private QuotationRepository quotationRepository;
+	
+	public Optional<Quotation> findByProposalNumber(String proposalNumber) {
+		return quotationRepository.findByProposalNumber(proposalNumber);
+	}
 
 }
