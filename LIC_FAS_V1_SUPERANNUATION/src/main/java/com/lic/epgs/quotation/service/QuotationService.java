@@ -1,21 +1,34 @@
-package com.lic.epgs.quotation.service;
+package com.lic.epgs.quotation.service; 
 
-import java.util.Optional;
+import com.lic.epgs.quotation.controller.QuotationController; 
+import com.lic.epgs.quotation.repository.QuotationRepository; 
+import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.stereotype.Service; 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+@Service 
+public class QuotationService { 
 
-import com.lic.epgs.quotation.model.Quotation;
-import com.lic.epgs.quotation.repository.QuotationRepository;
+    @Autowired 
+    private QuotationRepository quotationRepository; 
 
-@Service
-public class QuotationService {
-	
-	@Autowired
-	private QuotationRepository quotationRepository;
-	
-	public Optional<Quotation> findByProposalNumber(String proposalNumber) {
-		return quotationRepository.findByProposalNumber(proposalNumber);
-	}
+    public void uploadDocument() { 
+        quotationRepository.uploadDocument(); 
+    } 
+
+    public void saveDocument() { 
+        quotationRepository.saveDocument(); 
+    } 
+
+    public void logStartEndUploadDocument() { 
+        quotationRepository.logStartEndUploadDocument(); 
+    } 
+
+    public void handleExceptionsGracefully() { 
+        quotationRepository.handleExceptionsGracefully(); 
+    } 
+
+    public void returnAppropriateErrorMessage() { 
+        quotationRepository.returnAppropriateErrorMessage(); 
+    } 
 
 }
